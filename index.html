@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MGM Marcenaria | Marcenaria de alto padrão sob medida</title>
+  <meta name="description" content="Marcenaria de alto padrão sob medida: cozinhas, salas, dormitórios, closets e projetos comerciais. Foco em PR, SC e SP, com atendimento em todo o Brasil.">
+  <meta name="theme-color" content="#8a1c22">
+
+  <!-- Open Graph: como o link aparece quando é compartilhado no WhatsApp e nas redes -->
+  <link rel="canonical" href="https://marcelopelentir.github.io/site-mgm-marcenaria/">
+  <meta property="og:url" content="https://marcelopelentir.github.io/site-mgm-marcenaria/">
+  <meta property="og:site_name" content="MGM Marcenaria">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="MGM Marcenaria | Marcenaria de alto padrão sob medida">
+  <meta property="og:description" content="Marcenaria de alto padrão sob medida: cozinhas, salas, dormitórios, closets e projetos comerciais. Foco em PR, SC e SP, com atendimento em todo o Brasil.">
+  <!-- Imagem do compartilhamento (WhatsApp, redes): precisa do endereço completo. 1200x630. -->
+  <meta property="og:image" content="https://marcelopelentir.github.io/site-mgm-marcenaria/assets/imagens/og-mgm.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Dados estruturados (JSON-LD): ficha da empresa em formato que o Google lê direto.
+       Ajuda a aparecer como empresa local na busca e no Maps. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "MGM Marcenaria",
+    "legalName": "Pelentir Móveis LTDA",
+    "taxID": "30.920.925/0001-11",
+    "description": "Marcenaria de alto padrão sob medida, do projeto à instalação.",
+    "url": "https://marcelopelentir.github.io/site-mgm-marcenaria/",
+    "logo": "https://marcelopelentir.github.io/site-mgm-marcenaria/assets/logo-mgm.svg",
+    "image": "https://marcelopelentir.github.io/site-mgm-marcenaria/assets/imagens/og-mgm.jpg",
+    "telephone": "+55 41 98828-0571",
+    "email": "atendimentomgmmoveis@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Argemiro Rodrigues de Paula, 269 - Jardim dos Eucaliptos",
+      "addressLocality": "Piraquara",
+      "addressRegion": "PR",
+      "postalCode": "83311-080",
+      "addressCountry": "BR"
+    },
+    "areaServed": ["Paraná", "Santa Catarina", "São Paulo", "Brasil"],
+    "sameAs": [
+      "https://www.instagram.com/mgmmarcenaria_/",
+      "https://www.linkedin.com/company/mgm-marcenaria/",
+      "https://share.google/vh0qGKdN5vU6CauHO"
+    ]
+  }
+  </script>
+
+  <!-- Ícones da aba e da tela inicial do celular -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Avisa o CSS que o JavaScript está ativo. Fica no head para rodar antes da página aparecer
+       e evitar que o menu mobile "pisque" aberto. Sem JS, o menu fica sempre visível. -->
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- 1. CABEÇALHO -->
+  <header class="cabecalho">
+    <div class="cabecalho__interno">
+      <a class="cabecalho__logo" href="#inicio"><img src="assets/logo-mgm.svg" alt="MGM Marcenaria" width="216" height="28"></a>
+
+      <!-- Botão do menu mobile. aria-expanded diz ao leitor de tela se o menu está aberto;
+           aria-controls aponta qual elemento ele abre. O JS atualiza os dois. -->
+      <button class="cabecalho__botao" type="button" aria-expanded="false" aria-controls="menu-principal">Menu</button>
+
+      <nav class="cabecalho__nav" id="menu-principal" aria-label="Menu principal">
+        <ul class="cabecalho__menu">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#empresa">A empresa</a></li>
+          <li><a href="#especialidades">Especialidades</a></li>
+          <li><a href="#processo">Processo</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- 2. HERO -->
+    <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+      <div class="hero__conteudo">
+        <!-- Região: foco em PR, SC e SP; atendimento em todo o Brasil (o "todo o Brasil" entra no rodapé e no SEO) -->
+        <p class="sobretitulo">PR, SC, SP e todo o Brasil</p>
+
+        <!-- Título: posicionamento (alto padrão + fábrica própria). Revisto em 17/nov a pedido do Marcelo -->
+        <h1 id="hero-titulo" class="hero__titulo">Marcenaria de alto padrão, da nossa fábrica para a sua casa.</h1>
+
+        <p class="hero__texto">Móveis sob medida pensados em cada detalhe: projetados, produzidos em fábrica própria e instalados pela nossa equipe, lado a lado com arquitetos e designers de interiores.</p>
+
+        <a class="botao" href="#projetos">Ver projetos</a>
+      </div>
+
+      <!-- Foto do hero: Apartamento São Paulo. Sem loading="lazy": é a primeira imagem da tela. -->
+      <figure class="hero__imagem">
+        <img src="assets/imagens/hero.webp"
+             alt="Cozinha amadeirada com cristaleira iluminada em LED e ripado, em apartamento em São Paulo"
+             width="1200" height="1500" fetchpriority="high">
+      </figure>
+    </section>
+
+    <!-- 3. PROJETOS SELECIONADOS -->
+    <section class="secao" id="projetos" aria-labelledby="projetos-titulo">
+      <div class="secao__cabecalho">
+        <p class="sobretitulo">Portfólio</p>
+        <h2 id="projetos-titulo">Projetos selecionados</h2>
+      </div>
+
+      <!-- Cada card leva à página do projeto, identificado pelo nome (sem número). -->
+      <ul class="projetos__lista">
+        <li class="projeto-card">
+          <a class="projeto-card__link" href="projeto-1.html">
+            <figure class="projeto-card__imagem">
+              <img src="assets/imagens/apto-sao-paulo-capa.webp"
+                   alt="Sala de jantar com mesa oval de madeira, ripado e sala de estar ao fundo, em apartamento em São Paulo"
+                   width="960" height="1200" loading="lazy">
+            </figure>
+            <div class="projeto-card__info">
+              <h3 class="projeto-card__titulo">Apartamento São Paulo</h3>
+              <p class="projeto-card__categoria">São Paulo – SP</p>
+            </div>
+          </a>
+        </li>
+
+        <li class="projeto-card">
+          <a class="projeto-card__link" href="projeto-2.html">
+            <figure class="projeto-card__imagem">
+              <img src="assets/imagens/apto-bombinhas-capa.webp"
+                   alt="Cristaleira com LED ao lado do ripado amadeirado, em apartamento em Bombinhas"
+                   width="960" height="1200" loading="lazy">
+            </figure>
+            <div class="projeto-card__info">
+              <h3 class="projeto-card__titulo">Apartamento Bombinhas</h3>
+              <p class="projeto-card__categoria">Bombinhas – SC</p>
+            </div>
+          </a>
+        </li>
+
+        <li class="projeto-card">
+          <a class="projeto-card__link" href="projeto-3.html">
+            <figure class="projeto-card__imagem">
+              <img src="assets/imagens/apto-bombinhas-marcio-capa.webp"
+                   alt="Área gourmet com prateleiras iluminadas em LED e painel amadeirado, em apartamento em Bombinhas"
+                   width="960" height="1200" loading="lazy">
+            </figure>
+            <div class="projeto-card__info">
+              <h3 class="projeto-card__titulo">Apartamento Marcio Bombinhas</h3>
+              <p class="projeto-card__categoria">Bombinhas – SC</p>
+            </div>
+          </a>
+        </li>
+
+        <li class="projeto-card">
+          <a class="projeto-card__link" href="projeto-4.html">
+            <figure class="projeto-card__imagem">
+              <img src="assets/imagens/sobrado-curitiba-capa.webp"
+                   alt="Cozinha com bancada em pedra clara, LED sob os armários e geladeira embutida, em sobrado em Curitiba"
+                   width="960" height="1200" loading="lazy">
+            </figure>
+            <div class="projeto-card__info">
+              <h3 class="projeto-card__titulo">Sobrado Curitiba</h3>
+              <p class="projeto-card__categoria">Curitiba – PR</p>
+            </div>
+          </a>
+        </li>
+
+        <li class="projeto-card">
+          <a class="projeto-card__link" href="projeto-5.html">
+            <figure class="projeto-card__imagem">
+              <img src="assets/imagens/apto-curitiba-capa.webp"
+                   alt="Apartamento em Curitiba: mesa de jantar ao lado da ilha da cozinha, sob forro com LED"
+                   width="960" height="1200" loading="lazy">
+            </figure>
+            <div class="projeto-card__info">
+              <h3 class="projeto-card__titulo">Apartamento Curitiba</h3>
+              <p class="projeto-card__categoria">Curitiba – PR</p>
+            </div>
+          </a>
+        </li>
+
+        <li class="projeto-card">
+          <a class="projeto-card__link" href="projeto-6.html">
+            <figure class="projeto-card__imagem">
+              <img src="assets/imagens/especialidade-comerciais.webp"
+                   alt="Espaço da Suvinil em Castro com marcenaria, lambri ripado verde e branco e mesa alta"
+                   width="900" height="1200" loading="lazy">
+            </figure>
+            <div class="projeto-card__info">
+              <h3 class="projeto-card__titulo">Projetos Comerciais</h3>
+              <p class="projeto-card__categoria">Suvinil, Coral e Alessi</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 4. A EMPRESA -->
+    <section class="secao" id="empresa" aria-labelledby="empresa-titulo">
+      <div class="empresa">
+        <figure class="empresa__imagem">
+          <img src="assets/imagens/empresa-valdeir-regiane.webp" alt="Valdeir e Regiane, fundadores da MGM Marcenaria"
+               width="960" height="1200" loading="lazy">
+        </figure>
+
+        <!-- Textos tirados do post fixado "nossa história" do Instagram (carrossel de nov/2026) -->
+        <div class="empresa__texto">
+          <p class="sobretitulo">A empresa</p>
+
+          <h2 id="empresa-titulo" class="empresa__titulo">Ele, marceneiro desde os 14 anos. Ela, sempre nas vendas.</h2>
+
+          <p class="empresa__paragrafo">O Valdeir cresceu entre madeira e ferramentas. Depois de 18 anos na mesma marcenaria, decidiu abrir a própria, ao lado da Regiane, que vinha da representação comercial. Em maio de 2018, num puxado no fundo de casa e com as máquinas mais básicas do mercado, a MGM começou fazendo prateleiras e mesas de cabeceira.</p>
+
+          <p class="empresa__paragrafo">Cliente por cliente, o trabalho cresceu. Hoje temos fábrica própria, com máquinas como a CNC, e cuidamos de cada etapa: da compra do material ao acompanhamento da obra. O Valdeir comanda a produção, e a Regiane, o atendimento e o administrativo. E ainda temos muitos planos pela frente.</p>
+
+          <p class="empresa__assinatura">Valdeir e Regiane · fundadores</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. DIFERENCIAIS -->
+    <section class="secao secao--areia" id="diferenciais" aria-labelledby="diferenciais-titulo">
+      <div class="diferenciais">
+        <div class="secao__cabecalho">
+          <p class="sobretitulo">Diferenciais</p>
+          <h2 id="diferenciais-titulo">Por que a MGM</h2>
+        </div>
+
+        <!-- Diferenciais tirados das legendas do Instagram (o que a MGM mostra e repete nos posts).
+             Validar com a MGM antes de publicar. -->
+        <ol class="diferenciais__lista">
+          <li class="diferencial">
+            <span class="diferencial__numero">01</span>
+            <div>
+              <h3 class="diferencial__titulo">Fábrica própria</h3>
+              <p class="diferencial__texto">Cada móvel nasce na nossa fábrica, com máquinas como a CNC. Escolha dos materiais, cortes, usinagem, montagem e acabamento passam pelas mãos da mesma equipe, do início ao fim.</p>
+            </div>
+          </li>
+
+          <li class="diferencial">
+            <span class="diferencial__numero">02</span>
+            <div>
+              <h3 class="diferencial__titulo">Lado a lado com arquitetos</h3>
+              <p class="diferencial__texto">Atuamos junto com profissionais de arquitetura e design, executando cada ambiente exatamente como foi projetado, com o alinhamento e o acabamento que o projeto pede.</p>
+            </div>
+          </li>
+
+          <li class="diferencial">
+            <span class="diferencial__numero">03</span>
+            <div>
+              <h3 class="diferencial__titulo">Luz planejada junto com o móvel</h3>
+              <p class="diferencial__texto">Quando a iluminação abraça a marcenaria, o ambiente muda. Planejamos o LED junto com o móvel, em painéis, nichos, cabeceiras, bancadas e forros, levando a luz exatamente aonde você precisa.</p>
+            </div>
+          </li>
+
+          <li class="diferencial">
+            <span class="diferencial__numero">04</span>
+            <div>
+              <h3 class="diferencial__titulo">Soluções que não aparecem</h3>
+              <p class="diferencial__texto">O segredo está no que não aparece: portas invisíveis no ripado, fiação escondida no painel, tomadas onde você precisa, gavetas com amortecedor e armários até o teto.</p>
+            </div>
+          </li>
+
+          <li class="diferencial">
+            <span class="diferencial__numero">05</span>
+            <div>
+              <h3 class="diferencial__titulo">Pronto para morar</h3>
+              <p class="diferencial__texto">Se você quiser, cuidamos do ambiente inteiro: piso, ar-condicionado, automação, pintura, decoração e até eletros e utensílios. Em São Paulo, recebemos um apartamento vazio e entregamos pronto em 3 meses.</p>
+              <a class="depoimento__link" href="projeto-1.html">Ver o projeto</a>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 6. ESPECIALIDADES -->
+    <section class="secao" id="especialidades" aria-labelledby="especialidades-titulo">
+      <div class="secao__cabecalho">
+        <p class="sobretitulo">Especialidades</p>
+        <h2 id="especialidades-titulo">Ambientes que projetamos e executamos</h2>
+      </div>
+
+      <!-- Ambientes, textos e fotos tirados dos posts do Instagram da MGM (fotos em 900x1200, 3:4, WebP).
+           Fotos (post de origem): cozinhas DZI2A48CQW6 · salas DVehqzgiVlD (2ª) · dormitórios DYp8bXLlZYC
+           · banheiros DYSxXWXiTvZ · cristaleiras Dez59x5RGxf · comerciais DdFOgwJifM9 -->
+      <ul class="especialidades__lista">
+        <li class="especialidade">
+          <figure class="especialidade__imagem">
+            <img src="assets/imagens/especialidade-cozinhas.webp" alt="Cozinha com ilha em mármore, armários em madeira clara e LED no forro"
+                 width="900" height="1200" loading="lazy">
+          </figure>
+          <p class="especialidade__local">Casa · Curitiba – PR</p>
+          <h3 class="especialidade__titulo">Cozinhas e áreas gourmet</h3>
+          <p class="especialidade__texto">O coração da casa, pensado em cada milímetro: eletros integrados, LED sob os armários, puxadores discretos e módulos até o teto.</p>
+        </li>
+
+        <li class="especialidade">
+          <figure class="especialidade__imagem">
+            <img src="assets/imagens/especialidade-salas.webp" alt="Sala com painel ripado, painel de TV em mármore com LED e cristaleira iluminada ao fundo"
+                 width="900" height="1200" loading="lazy">
+          </figure>
+          <p class="especialidade__local">Apartamento · Bombinhas – SC</p>
+          <h3 class="especialidade__titulo">Salas e halls</h3>
+          <p class="especialidade__texto">Painéis de TV com nichos iluminados, ripados e portas invisíveis. E o hall, que é o primeiro detalhe da sua casa.</p>
+        </li>
+
+        <li class="especialidade">
+          <figure class="especialidade__imagem">
+            <img src="assets/imagens/especialidade-dormitorios.webp" alt="Dormitório com cabeceira estofada e faixa de LED embutida na parede"
+                 width="900" height="1200" loading="lazy">
+          </figure>
+          <p class="especialidade__local">Apartamento · Bombinhas – SC</p>
+          <h3 class="especialidade__titulo">Dormitórios e closets</h3>
+          <p class="especialidade__texto">Um refúgio para o seu descanso: cabeceiras com LED, painéis que reúnem TV e penteadeira, e closets com luz em cada nicho.</p>
+        </li>
+
+        <li class="especialidade">
+          <figure class="especialidade__imagem">
+            <img src="assets/imagens/especialidade-banheiros.webp" alt="Banheiro com gabinete ripado em madeira, bancada preta e duas cubas"
+                 width="900" height="1200" loading="lazy">
+          </figure>
+          <p class="especialidade__local">Sobrado · Curitiba – PR</p>
+          <h3 class="especialidade__titulo">Banheiros e lavabos</h3>
+          <p class="especialidade__texto">Do lavabo ao banheiro compacto: gabinetes suspensos, painéis amadeirados e marcenaria que conversa com o mármore e os metais.</p>
+        </li>
+
+        <li class="especialidade">
+          <figure class="especialidade__imagem">
+            <img src="assets/imagens/especialidade-cristaleiras.webp" alt="Cristaleira com porta de vidro, prateleiras de vidro e iluminação em LED"
+                 width="900" height="1200" loading="lazy">
+          </figure>
+          <p class="especialidade__local">Casa · Curitiba – PR</p>
+          <h3 class="especialidade__titulo">Cristaleiras e home office</h3>
+          <p class="especialidade__texto">Cristaleiras com vidro e LED que transformam taças em decoração, e escritórios pensados para a sua rotina.</p>
+        </li>
+
+        <li class="especialidade">
+          <figure class="especialidade__imagem">
+            <img src="assets/imagens/especialidade-comerciais.webp" alt="Espaço da Suvinil com piso de madeira, lambri ripado verde e branco e mesa alta"
+                 width="900" height="1200" loading="lazy">
+          </figure>
+          <p class="especialidade__local">Suvinil · Castro – PR</p>
+          <h3 class="especialidade__titulo">Projetos comerciais</h3>
+          <p class="especialidade__texto">Quando a marcenaria faz parte da experiência da marca: espaços que executamos para Suvinil, Coral e Alessi.</p>
+          <a class="depoimento__link" href="projeto-6.html">Ver projetos comerciais</a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 7. PROCESSO -->
+    <section class="secao" id="processo" aria-labelledby="processo-titulo">
+      <div class="secao__cabecalho">
+        <p class="sobretitulo">Processo</p>
+        <h2 id="processo-titulo">Do primeiro atendimento à instalação final</h2>
+      </div>
+
+      <figure class="processo__imagem">
+        <img src="assets/imagens/processo-cnc.webp" alt="Fábrica da MGM com a CNC em primeiro plano e peças curvas de madeira em produção"
+             width="1600" height="900" loading="lazy">
+      </figure>
+
+      <!-- Etapas tiradas das legendas do Instagram (atendimento, medição, produção, instalação).
+           Sem prazos nem garantias: só o que a MGM já descreve publicamente. -->
+      <ol class="processo__lista">
+        <li class="etapa">
+          <span class="etapa__numero">01</span>
+          <h3 class="etapa__titulo">Conversa</h3>
+          <p class="etapa__texto">Tudo começa com uma conversa: entendemos o seu espaço, a sua rotina e o que você imagina.</p>
+        </li>
+        <li class="etapa">
+          <span class="etapa__numero">02</span>
+          <h3 class="etapa__titulo">Medição</h3>
+          <p class="etapa__texto">Vamos até o local tirar as medidas, para que cada móvel acompanhe as proporções do ambiente.</p>
+        </li>
+        <li class="etapa">
+          <span class="etapa__numero">03</span>
+          <h3 class="etapa__titulo">Projeto</h3>
+          <p class="etapa__texto">Desenvolvemos o projeto, ou trabalhamos junto com o seu arquiteto, e você aprova antes da produção.</p>
+        </li>
+        <li class="etapa">
+          <span class="etapa__numero">04</span>
+          <h3 class="etapa__titulo">Fabricação</h3>
+          <p class="etapa__texto">Na nossa fábrica: escolha dos materiais, cortes, usinagem, montagem e acabamento.</p>
+        </li>
+        <li class="etapa">
+          <span class="etapa__numero">05</span>
+          <h3 class="etapa__titulo">Instalação</h3>
+          <p class="etapa__texto">Montamos no local e entregamos o ambiente limpo e organizado. A sua única preocupação é a decoração.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 8. PROVA SOCIAL -->
+    <section class="secao secao--areia" id="depoimentos" aria-labelledby="depoimentos-titulo">
+      <div class="secao__cabecalho">
+        <p class="sobretitulo">Depoimentos</p>
+        <h2 id="depoimentos-titulo">O que dizem nossos clientes</h2>
+      </div>
+
+      <!-- Depoimentos reais: Amanda e Karla enviados pela MGM (nov/2026); o terceiro, do destaque
+           "Feedbacks" do Instagram. Levemente encurtados, sem mudar o sentido. -->
+      <ul class="depoimentos__lista">
+        <li>
+          <figure class="depoimento">
+            <blockquote class="depoimento__texto">
+              <p>Desde o primeiro atendimento até a montagem final, o cuidado com todos os detalhes e a dedicação em cada etapa do processo. Cada cantinho ficou exatamente como sonhamos, e o resultado superou todas as nossas expectativas!</p>
+            </blockquote>
+            <figcaption class="depoimento__autor">Amanda · Apartamento · Curitiba – PR</figcaption>
+            <a class="depoimento__link" href="projeto-5.html">Ver o projeto</a>
+          </figure>
+        </li>
+        <li>
+          <figure class="depoimento">
+            <blockquote class="depoimento__texto">
+              <p>Obrigada pelo serviço e pelo cuidado. Vocês fazem parte do nosso sonho.</p>
+            </blockquote>
+            <figcaption class="depoimento__autor">Karla · Sobrado · Curitiba – PR</figcaption>
+            <a class="depoimento__link" href="projeto-4.html">Ver o projeto</a>
+          </figure>
+        </li>
+        <li>
+          <figure class="depoimento">
+            <blockquote class="depoimento__texto">
+              <p>A marcenaria ficou impecável, tudo melhor do que eu esperava. Foram super rápidos na produção e na montagem, e já foram limpando e deixando tudo organizado.</p>
+            </blockquote>
+            <figcaption class="depoimento__autor">Cliente MGM · Apartamento</figcaption>
+          </figure>
+        </li>
+      </ul>
+
+      <!-- Citação de marcas e escritórios autorizada pela MGM (17/nov). Nomes em texto, sem logos. -->
+      <div class="marcas">
+        <p class="marcas__titulo">Marcas que confiam no nosso trabalho</p>
+        <ul class="marcas__lista">
+          <li>Suvinil</li>
+          <li>Coral</li>
+          <li>Alessi</li>
+        </ul>
+        <p class="marcas__titulo marcas__titulo--parceiros">Em parceria com escritórios como</p>
+        <ul class="marcas__lista marcas__lista--parceiros">
+          <li><a href="https://www.instagram.com/morastudio.interiores/" target="_blank" rel="noopener">Mora Studio Interiores</a></li>
+          <li><a href="https://www.instagram.com/zontareisinteriores/" target="_blank" rel="noopener">Zonta Reis Interiores</a></li>
+          <li><a href="https://www.instagram.com/tamarar_arquitetura/" target="_blank" rel="noopener">TCR Arquitetura</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 9. CHAMADA FINAL (destino do item "Contato" do menu) -->
+    <section class="secao secao--marca chamada-final" id="contato" aria-labelledby="contato-titulo">
+      <p class="sobretitulo">Contato</p>
+
+      <!-- Frase da própria MGM no Instagram, validada pelo Marcelo (17/nov) -->
+      <h2 id="contato-titulo" class="chamada-final__titulo">Seu projeto começa com uma conversa.</h2>
+
+      <p class="chamada-final__texto">Chame a MGM no WhatsApp e conte o que você imagina. Vamos tirar o seu projeto do papel.</p>
+
+      <!-- WhatsApp comercial: +55 41 98828-0571. No link, só números: 55 (Brasil) + 41 (DDD) + número.
+           O ?text= já abre a conversa com uma mensagem pronta (escrita em formato de URL: %20 = espaço). -->
+      <a class="botao botao--claro"
+         href="https://wa.me/5541988280571?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20conversar%20sobre%20um%20projeto."
+         target="_blank" rel="noopener">
+        Conversar pelo WhatsApp
+      </a>
+    </section>
+
+  </main>
+
+  <!-- 10. RODAPÉ: só informação, sem botão de conversão -->
+  <footer class="rodape">
+    <div class="rodape__interno">
+      <div class="rodape__marca">
+        <a class="rodape__logo" href="#inicio"><img src="assets/logo-mgm-claro.svg" alt="MGM Marcenaria" width="216" height="28"></a>
+        <p>Marcenaria de alto padrão sob medida. Foco em PR, SC e SP, com atendimento em todo o Brasil.</p>
+        <!-- Redes sociais em ícone. Ícones da biblioteca Bootstrap Icons (licença MIT).
+             aria-label dá nome ao link para leitores de tela; o SVG fica escondido deles (aria-hidden). -->
+        <ul class="redes" aria-label="Redes sociais">
+          <li>
+            <a href="https://www.instagram.com/mgmmarcenaria_/" target="_blank" rel="noopener" aria-label="Instagram da MGM Marcenaria">
+              <svg class="redes__icone" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/company/mgm-marcenaria/" target="_blank" rel="noopener" aria-label="LinkedIn da MGM Marcenaria">
+              <svg class="redes__icone" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://share.google/vh0qGKdN5vU6CauHO" target="_blank" rel="noopener" aria-label="MGM Marcenaria no Google">
+              <svg class="redes__icone" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M15.545 6.558a9.4 9.4 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.7 7.7 0 0 1 5.352 2.082l-2.284 2.284A4.35 4.35 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.8 4.8 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.7 3.7 0 0 0 1.599-2.431H8v-3.08z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://wa.me/5541988280571" target="_blank" rel="noopener" aria-label="WhatsApp da MGM Marcenaria">
+              <svg class="redes__icone" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <nav class="rodape__coluna" aria-label="Menu do rodapé">
+        <h2 class="rodape__titulo">Navegação</h2>
+        <ul>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#empresa">A empresa</a></li>
+          <li><a href="#especialidades">Especialidades</a></li>
+          <li><a href="#processo">Processo</a></li>
+        </ul>
+      </nav>
+
+      <div class="rodape__coluna">
+        <h2 class="rodape__titulo">Contato</h2>
+        <ul>
+          <li><a href="https://wa.me/5541988280571" target="_blank" rel="noopener">(41) 98828-0571</a></li>
+          <li><a href="mailto:atendimentomgmmoveis@gmail.com">atendimentomgmmoveis@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="rodape__coluna">
+        <h2 class="rodape__titulo">Empresa</h2>
+        <!-- Dados do cadastro do CNPJ (Receita Federal). Endereço completo liberado pela MGM (17/nov). -->
+        <address class="rodape__endereco">
+          Pelentir Móveis LTDA<br>
+          CNPJ 30.920.925/0001-11<br>
+          Rua Argemiro Rodrigues de Paula, 269<br>
+          Jardim dos Eucaliptos, Piraquara – PR<br>
+          CEP 83311-080
+        </address>
+      </div>
+    </div>
+
+    <div class="rodape__base">
+      <p>© 2026 MGM Marcenaria</p>
+      <p>Site por <a href="https://yupeagencia.com.br" target="_blank" rel="noopener">YuPe Agência</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

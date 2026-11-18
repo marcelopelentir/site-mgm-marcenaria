@@ -1,0 +1,6 @@
+# Regras para robôs de busca (Google, Bing...). Libera o site inteiro.
+# Quando o domínio próprio chegar, trocar o endereço do sitemap abaixo.
+User-agent: *
+Allow: /
+
+Sitemap: https://marcelopelentir.github.io/site-mgm-marcenaria/sitemap.xml

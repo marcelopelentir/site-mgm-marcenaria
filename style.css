@@ -1,0 +1,1331 @@
+/* ==========================================================================
+   MGM Marcenaria — estilos
+   Organização: 1. Variáveis  2. Reset  3. Base  4. Utilitários  5. Componentes
+   ========================================================================== */
+
+
+/* 1. VARIÁVEIS ---------------------------------------------------------------
+   Toda a identidade visual mora aqui. Paleta e fontes são PROVISÓRIAS
+   até a análise da marca: trocar a identidade = editar só este bloco. */
+
+:root {
+  /* Cores */
+  --cor-fundo: #f7f4ef;          /* off-white quente */
+  --cor-fundo-alt: #ebe4d8;      /* areia */
+  --cor-texto: #2b2a28;          /* grafite */
+  --cor-texto-suave: #6b665e;
+  --cor-marca: #8a1c22;          /* vinho da MGM (logo e destaques do Instagram): o destaque do site */
+  --cor-madeira: #8a6a4b;        /* reservado para detalhes de material */
+  --cor-linha: #d8d0c3;
+
+  /* Tipografia */
+  --fonte-titulo: "Cormorant Garamond", Georgia, serif;
+  --fonte-texto: "Manrope", system-ui, sans-serif;
+
+  /* Tamanhos de texto fluidos: crescem com a largura da tela, entre um mínimo e um máximo */
+  --texto-p: 1rem;
+  --texto-m: 1.125rem;
+  --titulo-g: clamp(1.75rem, 1.2rem + 2.4vw, 3rem);
+  --titulo-xg: clamp(2.5rem, 1.6rem + 4vw, 5rem);
+
+  /* Espaçamentos */
+  --espaco-1: 0.5rem;
+  --espaco-2: 1rem;
+  --espaco-3: 1.5rem;
+  --espaco-4: 2.5rem;
+  --espaco-5: 4rem;
+  --espaco-secao: clamp(4rem, 3rem + 5vw, 8rem);
+
+  /* Layout */
+  --altura-cabecalho: 4.5rem;
+  --largura-max: 78rem;
+  --margem-lateral: clamp(1.25rem, 4vw, 3rem);
+}
+
+
+/* 2. RESET ------------------------------------------------------------------
+   Zera diferenças entre navegadores para partirmos de uma base previsível. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* :where() deixa esta regra com especificidade zero: qualquer classe que defina
+   padding (como a fileira de Especialidades) ganha dela. */
+:where(ul[class], ol[class]) {
+  list-style: none;
+  padding: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+
+/* 3. BASE ------------------------------------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: var(--fonte-texto);
+  font-size: var(--texto-p);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fonte-titulo);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+h1 { font-size: var(--titulo-xg); }
+h2 { font-size: var(--titulo-g); }
+
+a {
+  color: inherit;
+}
+
+/* Foco visível para quem navega pelo teclado */
+:focus-visible {
+  outline: 2px solid var(--cor-marca);
+  outline-offset: 3px;
+}
+
+/* As âncoras param abaixo do cabeçalho, sem ficar escondidas atrás dele */
+section[id] {
+  scroll-margin-top: var(--altura-cabecalho);
+}
+
+/* Com o menu mobile aberto, a página atrás dele não rola */
+body.menu-aberto {
+  overflow: hidden;
+}
+
+/* Quem pediu menos movimento no sistema não recebe rolagem suave nem animações */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* 4. UTILITÁRIOS ------------------------------------------------------------ */
+
+/* Conteúdo pendente: visível no desenvolvimento, fácil de achar e remover */
+.pendente {
+  outline: 1px dashed var(--cor-texto-suave);
+  outline-offset: 4px;
+  color: var(--cor-texto-suave);
+}
+
+/* Esconde da tela mas mantém para leitores de tela (título da galeria, por exemplo) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Link de acessibilidade: escondido até receber foco pelo teclado */
+.pular-conteudo {
+  position: absolute;
+  left: var(--espaco-2);
+  top: -3rem;
+  padding: var(--espaco-1) var(--espaco-2);
+  background: var(--cor-texto);
+  color: var(--cor-fundo);
+}
+
+.pular-conteudo:focus {
+  top: var(--espaco-2);
+}
+
+
+/* 5. COMPONENTES ------------------------------------------------------------
+   Cada seção ganha seu bloco aqui conforme for construída. */
+
+/* Seção genérica: largura máxima centralizada e respiro vertical */
+.secao {
+  max-width: var(--largura-max);
+  margin-inline: auto;
+  padding: var(--espaco-secao) var(--margem-lateral);
+}
+
+/* Variação com fundo areia que vai de ponta a ponta da tela.
+   A seção continua com largura máxima (o conteúdo não se espalha), mas o fundo
+   "vaza" para os lados: o box-shadow pinta uma borda gigante da mesma cor
+   e o clip-path corta essa sombra em cima e embaixo, deixando só os lados. */
+.secao--areia {
+  background: var(--cor-fundo-alt);
+  box-shadow: 0 0 0 100vmax var(--cor-fundo-alt);
+  clip-path: inset(0 -100vmax);
+}
+
+/* Variação com fundo vinho (cor da marca), mesmo truque de ponta a ponta.
+   Usada só na chamada final: é o único bloco grande de vinho do site. */
+.secao--marca {
+  background: var(--cor-marca);
+  box-shadow: 0 0 0 100vmax var(--cor-marca);
+  clip-path: inset(0 -100vmax);
+  color: var(--cor-fundo);
+}
+
+/* Dentro do vinho, o sobretítulo não pode ser vinho: vira off-white translúcido */
+.secao--marca .sobretitulo {
+  color: rgb(247 244 239 / 0.7);
+}
+
+/* Abertura de seção: sobretítulo + título */
+.secao__cabecalho {
+  margin-bottom: var(--espaco-4);
+}
+
+/* Sobretítulo: a linha pequena em caixa-alta acima dos títulos.
+   Componente reutilizável (hero e todas as seções). */
+.sobretitulo {
+  margin-bottom: var(--espaco-2);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cor-marca);
+}
+
+/* CABEÇALHO
+   Mobile first: a base é o celular (botão "Menu" abre um painel de tela cheia).
+   A partir de 56rem (~900px) o menu aparece em linha e o botão some.
+   Tudo que depende de JS começa com .js, então sem JS o menu fica sempre visível. */
+
+.cabecalho {
+  position: sticky;              /* acompanha a rolagem, preso ao topo */
+  top: 0;
+  z-index: 10;                   /* fica por cima do conteúdo que passa embaixo */
+  background: var(--cor-fundo);
+  border-bottom: 1px solid var(--cor-linha);
+}
+
+.cabecalho__interno {
+  max-width: var(--largura-max);
+  min-height: var(--altura-cabecalho);
+  margin-inline: auto;
+  padding-inline: var(--margem-lateral);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--espaco-2);
+}
+
+/* Logo provisório em texto, imitando o logotipo do Instagram:
+   "MGM" em sans-serif bold na cor vinho. Sai quando o SVG oficial chegar. */
+/* Logo oficial em SVG (vetor tirado do PDF original do Illustrator).
+   A altura manda; a largura acompanha a proporção do desenho. */
+.cabecalho__logo {
+  display: block;
+  line-height: 0;
+}
+
+.cabecalho__logo img {
+  width: auto;
+  height: 1.75rem;
+}
+
+/* Links do menu: caixa-alta pequena e espaçada, tom editorial */
+.cabecalho__menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-1) var(--espaco-3);
+  padding-bottom: var(--espaco-2);   /* respiro quando o menu quebra linha (sem JS) */
+}
+
+.cabecalho__menu a {
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.cabecalho__menu a:hover {
+  color: var(--cor-marca);
+}
+
+/* Botão "Menu": escondido sem JS (não teria função) */
+.cabecalho__botao {
+  display: none;
+}
+
+.js .cabecalho__botao {
+  display: block;
+  padding: var(--espaco-1) 0;
+  background: none;
+  border: 0;
+  color: inherit;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* Painel do menu mobile: fechado por padrão, cobre a tela abaixo do cabeçalho */
+.js .cabecalho__nav {
+  display: none;
+  position: fixed;
+  inset: var(--altura-cabecalho) 0 0 0;   /* topo, direita, base, esquerda */
+  padding: var(--espaco-4) var(--margem-lateral);
+  background: var(--cor-fundo);
+  overflow-y: auto;
+}
+
+/* Abre quando o botão logo antes dele está com aria-expanded="true" */
+.js .cabecalho__botao[aria-expanded="true"] + .cabecalho__nav {
+  display: block;
+}
+
+.js .cabecalho__menu {
+  flex-direction: column;
+  gap: var(--espaco-3);
+}
+
+.js .cabecalho__menu a {
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Desktop */
+@media (min-width: 56rem) {
+  .cabecalho__menu {
+    padding-bottom: 0;
+  }
+
+  .js .cabecalho__botao {
+    display: none;
+  }
+
+  .js .cabecalho__nav {
+    display: block;
+    position: static;
+    padding: 0;
+    background: none;
+  }
+
+  .js .cabecalho__menu {
+    flex-direction: row;
+    gap: var(--espaco-4);
+  }
+
+  .js .cabecalho__menu a {
+    font-family: var(--fonte-texto);
+    font-size: 0.8125rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* Se a tela for alargada com o menu aberto, a rolagem volta */
+  body.menu-aberto {
+    overflow: visible;
+  }
+}
+
+/* BOTÃO
+   Componente reutilizável: o mesmo estilo serve para o hero e, depois, para o WhatsApp. */
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75em;
+  padding: 1rem 1.75rem;
+  border: 1px solid var(--cor-texto);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.botao:hover {
+  background: var(--cor-texto);
+  color: var(--cor-fundo);
+}
+
+/* Variação para fundos escuros (chamada final em vinho) */
+.botao--claro {
+  border-color: var(--cor-fundo);
+}
+
+.botao--claro:hover {
+  background: var(--cor-fundo);
+  color: var(--cor-marca);
+}
+
+
+/* IMAGEM PENDENTE
+   Ocupa o espaço exato da foto que vai entrar (a proporção vem de cada componente),
+   para o layout já nascer com o tamanho certo. */
+
+.imagem-pendente {
+  display: grid;
+  place-items: center;
+  padding: var(--espaco-3);
+  background: var(--cor-fundo-alt);
+  color: var(--cor-texto-suave);
+  font-size: 0.8125rem;
+  text-align: center;
+}
+
+
+/* HERO
+   Mobile: texto em cima, foto embaixo.
+   Desktop: grade assimétrica, 5 partes de texto para 7 de foto, alinhadas pela base. */
+
+.hero {
+  max-width: var(--largura-max);
+  margin-inline: auto;
+  padding: var(--espaco-4) var(--margem-lateral) var(--espaco-secao);
+  display: grid;
+  gap: var(--espaco-4);
+}
+
+.hero__titulo {
+  max-width: 18ch;               /* ch = largura de um caractere: limita a ~18 letras por linha */
+  margin-bottom: var(--espaco-3);
+}
+
+.hero__texto {
+  max-width: 38ch;
+  margin-bottom: var(--espaco-4);
+  font-size: var(--texto-m);
+  color: var(--cor-texto-suave);
+}
+
+.hero__imagem {
+  aspect-ratio: 4 / 5;           /* foto vertical, como nas referências editoriais */
+}
+
+/* Desktop: o hero ocupa exatamente a tela visível, e a foto preenche essa altura.
+   (Com proporção fixa, a foto vertical ficava mais alta que a tela e escondia o botão.) */
+@media (min-width: 56rem) {
+  .hero {
+    grid-template-columns: 5fr 7fr;   /* fr = fração do espaço livre */
+    gap: var(--espaco-5);
+    height: calc(100svh - var(--altura-cabecalho));   /* svh = altura visível da tela */
+    min-height: 36rem;               /* telas muito baixas: não espreme */
+    max-height: 60rem;               /* telas muito altas: não estica demais */
+    padding-block: var(--espaco-4);
+  }
+
+  .hero__conteudo {
+    align-self: end;                 /* texto alinhado pela base, foto ocupa a altura toda */
+    padding-bottom: var(--espaco-3);
+  }
+
+  .hero__imagem {
+    aspect-ratio: auto;
+    height: 100%;
+  }
+}
+
+/* Quando a foto real entrar: preenche o bloco cortando as sobras, sem distorcer */
+.hero__imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* PROJETOS SELECIONADOS
+   Celular: uma coluna. A partir de 40rem: duas colunas, com a coluna da direita
+   descida (efeito "escada"), para fugir da grade de cards iguais e dar ritmo de revista. */
+
+.projetos__lista {
+  display: grid;
+  gap: var(--espaco-4);
+}
+
+@media (min-width: 40rem) {
+  .projetos__lista {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--espaco-5) var(--espaco-3);   /* linha, coluna */
+  }
+
+  /* Itens pares (coluna da direita) começam mais abaixo */
+  .projeto-card:nth-child(even) {
+    margin-top: var(--espaco-5);
+  }
+}
+
+@media (min-width: 56rem) {
+  .projetos__lista {
+    column-gap: var(--espaco-5);
+  }
+}
+
+.projeto-card__link {
+  display: block;
+  text-decoration: none;
+}
+
+/* No celular a capa é mais baixa (4:3), para a lista de projetos não ficar longa demais.
+   A partir de 40rem, com duas colunas, volta ao formato vertical (4:5). */
+.projeto-card__imagem {
+  aspect-ratio: 4 / 3;
+  margin-bottom: var(--espaco-2);
+  overflow: hidden;              /* esconde a parte da foto que cresce no hover */
+}
+
+@media (min-width: 40rem) {
+  .projeto-card__imagem {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+.projeto-card__imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+/* Hover: a foto aproxima levemente e o título muda de cor */
+.projeto-card__link:hover .projeto-card__imagem img {
+  transform: scale(1.03);
+}
+
+.projeto-card__link:hover .projeto-card__titulo {
+  color: var(--cor-marca);
+}
+
+/* Nome do projeto em cima, local embaixo */
+.projeto-card__info {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.projeto-card__titulo {
+  font-size: 1.5rem;
+  transition: color 0.2s ease;
+}
+
+.projeto-card__categoria {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cor-texto-suave);
+}
+
+/* A EMPRESA
+   Celular: foto em cima, texto embaixo.
+   Desktop: foto à esquerda, texto à direita, centralizados na vertical.
+   O lado da foto inverte em relação ao hero (que tem a foto à direita), para alternar o ritmo. */
+
+.empresa {
+  display: grid;
+  gap: var(--espaco-4);
+}
+
+.empresa__imagem {
+  aspect-ratio: 4 / 5;
+}
+
+.empresa__imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.empresa__titulo {
+  max-width: 18ch;
+  margin-bottom: var(--espaco-3);
+}
+
+.empresa__paragrafo {
+  max-width: 52ch;               /* linhas de ~52 letras: leitura confortável */
+  margin-bottom: var(--espaco-2);
+  color: var(--cor-texto-suave);
+}
+
+.empresa__assinatura {
+  margin-top: var(--espaco-3);
+  font-family: var(--fonte-titulo);
+  font-size: 1.25rem;
+  font-style: italic;
+}
+
+@media (min-width: 56rem) {
+  .empresa {
+    grid-template-columns: 5fr 6fr;
+    align-items: center;
+    gap: var(--espaco-5);
+  }
+}
+
+/* DIFERENCIAIS
+   Lista numerada separada por linhas finas, sem cards nem ícones (pedido do briefing).
+   Desktop: título à esquerda, que fica parado enquanto a lista rola ao lado. */
+
+.diferenciais {
+  display: grid;
+  gap: var(--espaco-4);
+}
+
+.diferencial {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: var(--espaco-2);
+  padding-block: var(--espaco-3);
+  border-top: 1px solid rgb(43 42 40 / 0.15);   /* grafite com 15% de opacidade */
+}
+
+.diferencial:last-child {
+  border-bottom: 1px solid rgb(43 42 40 / 0.15);
+}
+
+.diferencial__numero {
+  padding-top: 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--cor-marca);
+}
+
+.diferencial__titulo {
+  margin-bottom: var(--espaco-1);
+  font-size: 1.5rem;
+}
+
+.diferencial__texto {
+  max-width: 52ch;
+  color: var(--cor-texto-suave);
+}
+
+@media (min-width: 56rem) {
+  .diferenciais {
+    grid-template-columns: 4fr 7fr;
+    align-items: start;
+    gap: var(--espaco-5);
+  }
+
+  /* Título "gruda" logo abaixo do cabeçalho enquanto a lista passa */
+  .diferenciais .secao__cabecalho {
+    position: sticky;
+    top: calc(var(--altura-cabecalho) + var(--espaco-4));
+  }
+}
+
+/* ESPECIALIDADES
+   Celular: uma fileira que rola para o lado, com "encaixe" em cada item (scroll-snap).
+   Mostra 75% do item seguinte, o que avisa que dá para arrastar.
+   A partir de 40rem: grade de 2 colunas. A partir de 56rem: 3 colunas. */
+
+.especialidades__lista {
+  display: grid;
+  grid-auto-flow: column;        /* os itens se alinham em colunas, lado a lado */
+  grid-auto-columns: 75%;
+  gap: var(--espaco-3);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory; /* ao soltar, a rolagem para no começo de um item */
+  scroll-padding-inline: var(--margem-lateral);
+  /* A fileira vai até a borda da tela, mas o primeiro item começa alinhado ao título */
+  margin-inline: calc(var(--margem-lateral) * -1);
+  padding-inline: var(--margem-lateral);
+  padding-bottom: var(--espaco-2);
+}
+
+.especialidade {
+  scroll-snap-align: start;
+}
+
+.especialidade__imagem {
+  aspect-ratio: 3 / 4;
+  margin-bottom: var(--espaco-2);
+  overflow: hidden;
+}
+
+.especialidade__imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Local do projeto da foto, em caixa-alta pequena acima do título */
+.especialidade__local {
+  margin-bottom: 0.25rem;
+  font-size: 0.6875rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cor-marca);
+}
+
+.especialidade__titulo {
+  margin-bottom: var(--espaco-1);
+  font-size: 1.5rem;
+}
+
+.especialidade__texto {
+  max-width: 36ch;
+  font-size: 0.9375rem;
+  color: var(--cor-texto-suave);
+}
+
+@media (min-width: 40rem) {
+  .especialidades__lista {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--espaco-4) var(--espaco-3);
+    overflow-x: visible;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+}
+
+@media (min-width: 56rem) {
+  .especialidades__lista {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* PROCESSO
+   Foto larga da produção em cima e as 5 etapas embaixo.
+   Celular: etapas empilhadas, ligadas por uma linha vertical à esquerda.
+   Desktop: 5 colunas lado a lado, ligadas por uma linha horizontal em cima (linha do tempo). */
+
+.processo__imagem {
+  aspect-ratio: 16 / 9;
+  margin-bottom: var(--espaco-4);
+}
+
+.processo__imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.processo__lista {
+  display: grid;
+}
+
+.etapa {
+  position: relative;
+  padding: 0 0 var(--espaco-4) var(--espaco-4);
+  border-left: 1px solid rgb(43 42 40 / 0.15);
+}
+
+.etapa:last-child {
+  padding-bottom: 0;
+}
+
+/* Marcador vinho sobre a linha, em cada etapa */
+.etapa::before {
+  content: "";
+  position: absolute;
+  top: 0.4rem;
+  left: -4px;                    /* metade da largura, para centralizar na linha */
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cor-marca);
+}
+
+.etapa__numero {
+  display: block;
+  margin-bottom: var(--espaco-1);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--cor-marca);
+}
+
+.etapa__titulo {
+  margin-bottom: var(--espaco-1);
+  font-size: 1.5rem;
+}
+
+.etapa__texto {
+  max-width: 36ch;
+  font-size: 0.9375rem;
+  color: var(--cor-texto-suave);
+}
+
+@media (min-width: 56rem) {
+  .processo__lista {
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--espaco-3);
+  }
+
+  .etapa {
+    padding: var(--espaco-3) 0 0;
+    border-left: 0;
+    border-top: 1px solid rgb(43 42 40 / 0.15);
+  }
+
+  .etapa::before {
+    top: -4px;
+    left: 0;
+  }
+}
+
+
+/* PROVA SOCIAL
+   Depoimentos em itálico grande, como citações de revista. Sem aspas desenhadas nem estrelas. */
+
+.depoimentos__lista {
+  display: grid;
+  gap: var(--espaco-4);
+}
+
+.depoimento__texto {
+  margin-bottom: var(--espaco-2);
+  font-family: var(--fonte-titulo);
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 1.35;
+}
+
+.depoimento__autor {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cor-texto-suave);
+}
+
+/* Marcas atendidas: só nomes em texto, numa linha discreta abaixo dos depoimentos */
+.marcas {
+  margin-top: var(--espaco-5);
+  padding-top: var(--espaco-3);
+  border-top: 1px solid rgb(43 42 40 / 0.15);
+}
+
+.marcas__titulo {
+  margin-bottom: var(--espaco-2);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cor-texto-suave);
+}
+
+.marcas__lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-1) var(--espaco-4);
+  font-family: var(--fonte-titulo);
+  font-size: 1.75rem;
+}
+
+/* Link do depoimento para a página do projeto */
+.depoimento__link {
+  display: inline-block;
+  margin-top: 0.25rem;
+  padding-block: 0.375rem;   /* área de toque de pelo menos 24px no celular */
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cor-marca);
+  text-underline-offset: 3px;
+}
+
+/* Segunda linha: escritórios parceiros, menor que a das marcas */
+.marcas__titulo--parceiros {
+  margin-top: var(--espaco-3);
+}
+
+.marcas__lista--parceiros {
+  font-size: 1.25rem;
+}
+
+.marcas__lista a {
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.marcas__lista a:hover {
+  color: var(--cor-marca);
+}
+
+/* Links dentro da ficha técnica do projeto */
+.ficha a {
+  color: var(--cor-marca);
+  text-underline-offset: 3px;
+}
+
+@media (min-width: 56rem) {
+  .depoimentos__lista {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--espaco-5);
+  }
+}
+
+
+/* CHAMADA FINAL
+   Bloco vinho, centralizado, com a frase em destaque e o botão do WhatsApp. */
+
+.chamada-final {
+  text-align: center;
+}
+
+.chamada-final__titulo {
+  max-width: 20ch;
+  margin: 0 auto var(--espaco-3);
+  font-size: var(--titulo-xg);
+}
+
+.chamada-final__texto {
+  max-width: 44ch;
+  margin: 0 auto var(--espaco-4);
+  color: rgb(247 244 239 / 0.8);
+}
+
+/* Foco visível também no fundo vinho */
+.secao--marca :focus-visible {
+  outline-color: var(--cor-fundo);
+}
+
+
+/* =====================================================================
+   PÁGINA DE PROJETO (projeto-1.html ... projeto-6.html)
+   ===================================================================== */
+
+/* Item do menu da seção atual */
+.cabecalho__menu a[aria-current] {
+  color: var(--cor-marca);
+}
+
+/* ABERTURA */
+.projeto-abertura {
+  padding-top: var(--espaco-4);
+  padding-bottom: 0;
+}
+
+.projeto-abertura__voltar {
+  display: inline-block;
+  margin-bottom: calc(var(--espaco-4) - 0.375rem);
+  padding-block: 0.375rem;   /* área de toque de pelo menos 24px no celular */
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--cor-texto-suave);
+  transition: color 0.2s ease;
+}
+
+.projeto-abertura__voltar:hover {
+  color: var(--cor-marca);
+}
+
+.projeto-abertura__titulo {
+  margin-bottom: var(--espaco-4);
+}
+
+.projeto-abertura__imagem {
+  aspect-ratio: 4 / 5;
+}
+
+/* <picture> é inline por padrão: vira bloco para a foto ocupar a moldura inteira */
+.projeto-abertura__imagem picture {
+  display: block;
+  height: 100%;
+}
+
+.projeto-abertura__imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 56rem) {
+  .projeto-abertura__imagem {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* FICHA E CONCEITO
+   Desktop: ficha técnica à esquerda, texto do conceito à direita (mesma grade dos Diferenciais). */
+.projeto-sobre {
+  display: grid;
+  gap: var(--espaco-4);
+}
+
+.ficha__linha {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: var(--espaco-2);
+  padding-block: var(--espaco-2);
+  border-top: 1px solid rgb(43 42 40 / 0.15);
+}
+
+.ficha__linha:last-child {
+  border-bottom: 1px solid rgb(43 42 40 / 0.15);
+}
+
+.ficha dt {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cor-marca);
+  padding-top: 0.2rem;
+}
+
+.ficha dd {
+  margin: 0;
+}
+
+.projeto-sobre__texto h2 {
+  max-width: 20ch;
+  margin-bottom: var(--espaco-3);
+}
+
+.projeto-sobre__texto p {
+  max-width: 58ch;
+  margin-bottom: var(--espaco-2);
+  color: var(--cor-texto-suave);
+}
+
+@media (min-width: 56rem) {
+  .projeto-sobre {
+    grid-template-columns: 4fr 7fr;
+    gap: var(--espaco-5);
+    align-items: start;
+  }
+}
+
+/* GALERIA
+   Celular: uma foto embaixo da outra.
+   A partir de 40rem: 2 colunas; as fotos "largas" ocupam a linha inteira. */
+.galeria {
+  display: grid;
+  gap: var(--espaco-2);
+}
+
+.galeria__item {
+  aspect-ratio: 4 / 5;
+}
+
+.galeria__item--larga {
+  aspect-ratio: 3 / 2;
+}
+
+.galeria__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 40rem) {
+  .galeria {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--espaco-3);
+  }
+
+  .galeria__item--larga {
+    grid-column: 1 / -1;           /* da primeira à última linha da grade: largura total */
+  }
+}
+
+/* OUTROS PROJETOS
+   Lista de links em texto grande, com o número em vinho. */
+.outros__lista {
+  display: grid;
+  margin-bottom: var(--espaco-4);
+}
+
+.outros__lista a {
+  display: flex;
+  align-items: baseline;
+  gap: var(--espaco-2);
+  padding-block: var(--espaco-2);
+  border-top: 1px solid rgb(43 42 40 / 0.15);
+  font-family: var(--fonte-titulo);
+  font-size: 1.375rem;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.outros__lista li:last-child a {
+  border-bottom: 1px solid rgb(43 42 40 / 0.15);
+}
+
+.outros__lista a:hover {
+  color: var(--cor-marca);
+}
+
+.outros__lista span {
+  font-family: var(--fonte-texto);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--cor-marca);
+}
+
+@media (min-width: 56rem) {
+  .outros__lista {
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: var(--espaco-3);
+  }
+
+  .outros__lista li:last-child a {
+    border-bottom: 0;
+  }
+}
+
+
+/* PROJETOS COMERCIAIS (projeto-6.html) */
+
+.projeto-abertura__texto {
+  max-width: 58ch;
+  font-size: var(--texto-m);
+  color: var(--cor-texto-suave);
+}
+
+/* ABAS
+   Sem JS: a lista de botões fica escondida e todos os painéis aparecem.
+   Com JS: o script mostra a lista e esconde os painéis inativos com o atributo hidden. */
+.abas__lista {
+  display: none;
+}
+
+.js .abas__lista {
+  display: flex;
+  gap: var(--espaco-4);
+  margin-bottom: var(--espaco-4);
+  border-bottom: 1px solid rgb(43 42 40 / 0.15);
+  overflow-x: auto;               /* no celular, se não couber, rola para o lado */
+  overflow-y: hidden;             /* evita a barrinha vertical criada pela linha ativa */
+}
+
+.abas__botao {
+  padding: var(--espaco-2) 0;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;            /* a linha ativa fica em cima da linha da lista */
+  font-family: var(--fonte-titulo);
+  font-size: 1.75rem;
+  color: var(--cor-texto-suave);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.abas__botao:hover {
+  color: var(--cor-texto);
+}
+
+.abas__botao[aria-selected="true"] {
+  color: var(--cor-texto);
+  border-bottom-color: var(--cor-marca);
+}
+
+.abas__painel + .abas__painel {
+  margin-top: var(--espaco-5);    /* sem JS, separa uma marca da outra */
+}
+
+/* Com JS o nome da marca já está na aba: o título do painel vira só para leitor de tela */
+.js .abas__titulo {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.abas__titulo {
+  margin-bottom: var(--espaco-2);
+}
+
+.abas__intro {
+  max-width: 58ch;
+  margin-bottom: var(--espaco-4);
+  color: var(--cor-texto-suave);
+}
+
+/* Cidades: 1 coluna no celular, 2 no tablet, 3 no desktop */
+.cidades {
+  display: grid;
+  gap: var(--espaco-4) var(--espaco-3);
+}
+
+.cidade__imagem {
+  aspect-ratio: 3 / 4;
+  margin-bottom: var(--espaco-2);
+  overflow: hidden;
+}
+
+.cidade__imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cidade__nome {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 40rem) {
+  .cidades {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 56rem) {
+  .cidades {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* RODAPÉ
+   Fundo grafite, fechando a página depois do bloco vinho. Só informação. */
+
+.rodape {
+  background: var(--cor-texto);
+  color: rgb(247 244 239 / 0.75);
+  font-size: 0.9375rem;
+}
+
+.rodape a {
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.rodape a:hover {
+  color: var(--cor-fundo);
+}
+
+.rodape :focus-visible {
+  outline-color: var(--cor-fundo);
+}
+
+/* O cinza dos pendentes some no grafite: no rodapé, mantém a cor do texto */
+.rodape .pendente {
+  color: inherit;
+}
+
+.rodape__interno {
+  max-width: var(--largura-max);
+  margin-inline: auto;
+  padding: var(--espaco-5) var(--margem-lateral) var(--espaco-4);
+  display: grid;
+  gap: var(--espaco-4);
+}
+
+/* Logo do rodapé: mesmo desenho do cabeçalho, em off-white sobre o grafite */
+.rodape__logo {
+  display: inline-block;
+  margin-bottom: var(--espaco-2);
+  line-height: 0;
+}
+
+.rodape__logo img {
+  width: auto;
+  height: 1.75rem;
+}
+
+.rodape__marca p {
+  max-width: 32ch;
+}
+
+/* Ícones das redes: círculos de 44px, o tamanho mínimo confortável para o toque no celular */
+.redes {
+  display: flex;
+  gap: var(--espaco-1);
+  margin-top: var(--espaco-3);
+  padding: 0;
+  list-style: none;
+}
+
+.redes a {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid rgb(247 244 239 / 0.25);
+  border-radius: 50%;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.redes a:hover {
+  border-color: var(--cor-fundo);
+  background: var(--cor-fundo);
+  color: var(--cor-marca);
+}
+
+.redes__icone {
+  width: 1.125rem;
+  height: 1.125rem;
+  fill: currentColor;             /* o ícone usa a cor do texto do link */
+}
+
+.rodape__titulo {
+  margin-bottom: var(--espaco-2);
+  font-family: var(--fonte-texto);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cor-fundo);
+}
+
+.rodape__coluna ul {
+  display: grid;
+  gap: var(--espaco-1);
+  padding: 0;
+  list-style: none;
+}
+
+.rodape__endereco {
+  font-style: normal;            /* <address> vem em itálico por padrão */
+  line-height: 1.8;
+}
+
+.rodape__base {
+  max-width: var(--largura-max);
+  margin-inline: auto;
+  padding: var(--espaco-3) var(--margem-lateral);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--espaco-1);
+  border-top: 1px solid rgb(247 244 239 / 0.15);
+  font-size: 0.8125rem;
+}
+
+@media (min-width: 40rem) {
+  .rodape__interno {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 56rem) {
+  .rodape__interno {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+}

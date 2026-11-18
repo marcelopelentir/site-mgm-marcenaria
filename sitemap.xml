@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Lista das páginas do site para o Google. Quando o domínio próprio chegar, trocar o endereço. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://marcelopelentir.github.io/site-mgm-marcenaria/</loc>
+    <lastmod>2026-11-17</lastmod>
+  </url>
+  <url>
+    <loc>https://marcelopelentir.github.io/site-mgm-marcenaria/projeto-1.html</loc>
+    <lastmod>2026-11-17</lastmod>
+  </url>
+  <url>
+    <loc>https://marcelopelentir.github.io/site-mgm-marcenaria/projeto-2.html</loc>
+    <lastmod>2026-11-17</lastmod>
+  </url>
+  <url>
+    <loc>https://marcelopelentir.github.io/site-mgm-marcenaria/projeto-3.html</loc>
+    <lastmod>2026-11-17</lastmod>
+  </url>
+  <url>
+    <loc>https://marcelopelentir.github.io/site-mgm-marcenaria/projeto-4.html</loc>
+    <lastmod>2026-11-17</lastmod>
+  </url>
+  <url>
+    <loc>https://marcelopelentir.github.io/site-mgm-marcenaria/projeto-5.html</loc>
+    <lastmod>2026-11-17</lastmod>
+  </url>
+  <url>
+    <loc>https://marcelopelentir.github.io/site-mgm-marcenaria/projeto-6.html</loc>
+    <lastmod>2026-11-17</lastmod>
+  </url>
+</urlset>
